@@ -1,25 +1,50 @@
-var BD = require("../config/bd").conexion;
+var BD = require("../config/bd");
+var bcrypt = require("bcrypt-nodejs");
 
 var Usuario = {
-	buscarPorNick: function(nick, callback){
-		BD.execute("SELECT FROM Login WHERE Nick_L = ?", [nick]).then(function(rows, fields){
-			console.log(rows);
-			console.log(fields);
-			return callback(null, rows);
-		});
-	},
-	registrar: function(email, contrasenia, nick, tipo, callback){
+	registrar: function(email, contrasenia, tipo, callback){
 		var nick_L = (tipo === "owner") ? "OW" : "RT";
-		BD.execute("SELECT FROM Login WHERE Nick_L LIKE '?%'", [nick_L]);
-		BD.query("INSERT INTO Login VALUES(?, ?, ?)", [nick, email, contrasenia]).then(function (results, fields) {
-			console.log(results);
-			console.log(fields);
-			return BD.query("INSERT INTO Tipo VALUES()");
+		var id;
+
+		return BD.get().query("SELECT email FROM login WHERE email LIKE ?", [email]).then(function(rows){
+			if(rows[0][0]){
+				return callback({ status: 401, mensaje: "El correo ya está registrado" }, false);
+			}
+
+			return BD.get().query("SELECT count(*) AS num FROM login WHERE nick_l LIKE ?", [nick_L + "%"])
+				.then(function (rows) {
+					var num = rows[0][0].num;
+					++num;
+					id = nick_L + num;
+
+					return BD.get().execute("INSERT INTO login VALUES(?, ?, ?)", [id, email, contrasenia]);
+				}).then(function () {
+					return callback(null, id);
+				}).catch(function (error) {
+					return callback({ status: 500, mensaje: error }, null);
+				});
+		}).catch(function (error) {
+			return callback({ status: 500, mensaje: error }, null);
 		});
 	},
-	iniciarSesion: function(){
+	iniciarSesion: function(email, contrasenia, callback){
+		return BD.get().query("SELECT * FROM login WHERE email LIKE ?", [email]).then(function (rows) {
+			if (!rows[0][0]) {
+				return callback({ status: 401, mensaje: "El correo no está registrado" }, false);
+			}
 
-	}
+			if(rows[0][0].Contrasenia === contrasenia){
+				callback(null, rows[0][0].Nick_L);
+			}else{
+				callback({ status: 401, mensaje: "Contraseña incorrecta" }, null);
+			}
+		});
+	},
+	
 };
+
+/*function crearHash(contraseña) {
+	return bcrypt.hashSync(contraseña, bcrypt.genSaltSync(10), null);
+}*/
 
 module.exports = Usuario;

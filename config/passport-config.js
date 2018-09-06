@@ -14,13 +14,13 @@ module.exports = function(passport) {
 
 	passport.use("registrar", new LocalStrategy(config, 
 		function(req, email, contrasenia, done){
-			Usuario.registrar(email, contrasenia, req.body.nick, req.body.tipo, done);
+			Usuario.registrar(email, contrasenia, req.body.tipo, done);
 		}
 	));
 
 	passport.use("iniciar", new LocalStrategy(config,
 		function(req, email, contrasenia, done){
-			Usuario.registrar(email, contrasenia, done);
+			Usuario.iniciarSesion(email, contrasenia, done);
 		}
 	));
 };
