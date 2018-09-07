@@ -16,9 +16,14 @@ var Usuario = {
 					var num = rows[0][0].num;
 					++num;
 					id = nick_L + num;
+					console.log(crearHash(contrasenia));
 
 					return BD.get().execute("INSERT INTO login VALUES(?, ?, ?)", [id, email, contrasenia]);
 				}).then(function () {
+					return BD.get().query("SELECT idTipo FROM tipo");
+				}).then(function(rows){
+					return BD.get().execute("INSERT INTO tipo VALUES(?, ?, ?)", [++rows[0][0].idTipo, tipo, id]);
+				}).then(function(){
 					return callback(null, id);
 				}).catch(function (error) {
 					return callback({ status: 500, mensaje: error }, null);
@@ -43,8 +48,8 @@ var Usuario = {
 	
 };
 
-/*function crearHash(contraseña) {
+function crearHash(contraseña) {
 	return bcrypt.hashSync(contraseña, bcrypt.genSaltSync(10), null);
-}*/
+}
 
 module.exports = Usuario;

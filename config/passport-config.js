@@ -18,7 +18,7 @@ module.exports = function(passport) {
 		}
 	));
 
-	passport.use("iniciar", new LocalStrategy(config,
+	passport.use("login", new LocalStrategy(config,
 		function(req, email, contrasenia, done){
 			Usuario.iniciarSesion(email, contrasenia, done);
 		}

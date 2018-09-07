@@ -14,8 +14,11 @@ module.exports = function(passport){
 		})(req, res, next);
 	});
 
-	router.post("/iniciar", function(req, res){
-		passport.authenticate("iniciar", function(error, usuario){
+	router.post("/login", function(req, res){
+		if(!req.body.email || !req.body.contrasenia){
+			res.status(400).send("Falta el usuario o la contraseña");
+		}
+		passport.authenticate("login", function(error, usuario){
 			if (!usuario) {
 				res.status(error ? error.status : 500).send(error ? error.mensaje : "Error en la BD");
 			} else {
@@ -39,13 +42,6 @@ module.exports = function(passport){
 			res.sendStatus(401);
 		}
 	});
-
-	/*router.get("/info", async (req, res)  {
-		if (!req.user) {
-			return res.status(403).send("No tienes permiso para acceder aquí");
-		}
-		res.send(await Alumno.obtenerInfo(req.user._id));
-	});*/
 
 	return router;
 };

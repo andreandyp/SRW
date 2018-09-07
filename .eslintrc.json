@@ -2,6 +2,11 @@
     "env": {
         "node": true
     },
+    "globals": {
+        "$": true,
+        "alert": true,
+        "window": true
+    },
     "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaVersion": 5
