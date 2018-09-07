@@ -11,7 +11,9 @@ var index = require("./routes/index"),
 	autentificar = require("./routes/autentificar")(passport);
 var base = require("./config/bd");
 
-base.conectar("localhost", "root", "mydb", "Andy94");
+var keys = require("./keys.json");
+
+base.conectar(keys.HOST, keys.USUARIO, keys.BD, keys.CONTRASEÑA);
 
 var app = express();
 
