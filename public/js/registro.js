@@ -1,5 +1,4 @@
 $("#form-login").on("submit", function (e) {
-	alert("hue");
 	e.preventDefault();
 
 	var datos = {

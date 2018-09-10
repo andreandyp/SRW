@@ -13,7 +13,7 @@ Este es un proyecto para la materia *Distributed Database*.
     "CONTRASEÑA": "Contraseña_del_usuario"
 }
 ```
-4. Ejecutar el script SQL llamado ```NetService.sql``` y después el script ```datos.sql``` incluidos en la carpeta ```config```.
+4. Ejecutar el script SQL llamado ```baseNS.sql``` y después el script ```datos.sql``` incluidos en la carpeta ```config```.
 5. Ejecutar ```npm start``` o ```yarn start```.
 6. Entra a [http://localhost:3000](http://localhost:3000) y  listo.
 ## Modo desarrollador
