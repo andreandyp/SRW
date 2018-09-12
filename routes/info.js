@@ -47,7 +47,15 @@ router.post("/direccion", function (req, res) {
 });
 
 router.put("/direccion", function (req, res) {
+	Direccion.actualizarDireccion(req.user, req.body).then(function (respuesta) {
+		res.status(respuesta.status).send(respuesta.mensaje);
+	});
+});
 
+router.delete("/direccion", function(req, res){
+	Direccion.eliminarDireccion(req.user, req.body.idDir).then(function (respuesta) {
+		res.status(respuesta.status).send(respuesta.mensaje);
+	});
 });
 
 module.exports = router;
