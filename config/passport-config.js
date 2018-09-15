@@ -4,12 +4,12 @@ var Login = require("../modelos/Login");
 module.exports = function(passport) {
 	var config = {usernameField: "email", passwordField: "contrasenia", passReqToCallback: true};
 	
-	passport.serializeUser(function(id, done){
-		done(null, id);
+	passport.serializeUser(function(datos, done){
+		done(null, datos);
 	});
 
-	passport.deserializeUser(function(id, done){
-		done(null, id);
+	passport.deserializeUser(function(datos, done){
+		done(null, datos);
 	});
 
 	passport.use("registrar", new LocalStrategy(config, 
