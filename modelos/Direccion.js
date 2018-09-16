@@ -3,7 +3,7 @@ var BD = require("../config/bd");
 class Direccion{
 	static obtenerDirecciones(nick_u) {
 		return BD.get().query(
-			"SELECT d.colonia, d.cp, d.calle, d.no_int, d.no_ext, pd.Direccion_idDir FROM direccion d, persona_dir pd WHERE pd.Persona_Nick_U = ? AND pd.Direccion_idDir = d.idDir", 
+			"SELECT d.idDir, d.colonia, d.cp, d.calle, d.no_int, d.no_ext FROM direccion d, persona_dir pd WHERE pd.Persona_Nick_U = ? AND pd.Direccion_idDir = d.idDir", 
 			[nick_u])
 			.then(rows => {
 				return { status: 200, mensaje: rows[0] };

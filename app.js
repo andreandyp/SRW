@@ -9,6 +9,7 @@ var session = require("express-session");
 require("./config/passport-config")(passport);
 var vistas = require("./routes/vistas"),
 	info = require("./routes/info"),
+	owner = require("./routes/owner"),
 	autentificar = require("./routes/autentificar")(passport);
 var base = require("./config/bd");
 
@@ -40,6 +41,7 @@ app.use(passport.session());
 
 app.use("/", vistas);
 app.use("/api/info", info);
+app.use("/api/owner", owner);
 app.use("/api/autentificar", autentificar);
 
 // catch 404 and forward to error handler

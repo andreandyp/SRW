@@ -274,7 +274,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Zona_Trabajo` (
   `idZT` INT NOT NULL,
   `Ciudad` VARCHAR(45) NULL,
-  `Delegaciòn` VARCHAR(45) NULL,
+  `Delegacion` VARCHAR(45) NULL,
   PRIMARY KEY (`idZT`))
 ENGINE = InnoDB;
 
