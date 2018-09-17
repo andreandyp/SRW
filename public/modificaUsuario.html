@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario Modifica</title>
+
+    <!--W3SCHOOLS-->
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+ 
+    <!-- CSS de Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"> <!--Iconos--> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500" >
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <!--Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js" charset="utf-8"></script>
+    <!--Script Calendario-->
+    <script type="text/javascript" src="js/mootools.js"></script>
+    <script type="text/javascript" src="js/calendar.js"></script>
+    <!--calendario -->
+     <link rel="stylesheet" href="css/calendar.css">
+
+
+     <script type="text/javascript">
+       //<![CDATA[
+        window.addEvent('domready', function() { 
+
+             myCal1 = new Calendar({ date1: 'd/m/Y' }, { blocked: ['12-15,20-22,25 2-5 2008'], direction: 0, tweak: { x: 6, y: 0 } });
+        });
+     </script>
+    
+  </head>
+
+  <body>   
+   
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top w3-center backstyle-registro">
+      <div class="w3-bar " id="myNavbar">
+        <a class="w3-bar-item w3-button w3-hover-blu  w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+          <i class="fa fa-bars"></i>
+        </a>
+        
+        <a href="#datosp" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> DATOS PERSONALES</a>
+        <a href="#address" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-address-book-o"></i> DOMICILIO</a>
+        <a href="#datfinan" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-credit-card-alt"></i> DATOS FINANCIEROS</a>
+
+   
+      </div>
+
+      <!-- Navbar on small screens -->
+      <div id="navDemo" class="w3-bar-block w3-border  w3-hide w3-hide-large w3-hide-medium ">
+        <a href="#datosp" class="w3-bar-item w3-button" onclick="toggleFunction()">DATOS PERSONALES</a>
+        <a href="#address" class="w3-bar-item w3-button" onclick="toggleFunction()">DOMICILIO</a>
+        <a href="#datfinan" class="w3-bar-item w3-button" onclick="toggleFunction()">DATOS FINANCIEROS</a>
+
+        
+      </div>
+    </div>
+   
+
+    <div class="my-content backstyle-registro" >
+
+
+        <div class="container" > 
+            <div class="row">
+                <div class="col-sm-12" >
+                  <h1><strong>Modifica o Ingresa tus datos!</strong></h1>
+              
+                </div>
+            </div>
+
+            <!-- DATOS PERSONALES -->
+            <div class="row" id="datosp">
+              <div class="col-sm-6  offset-3 myform-cont" >
+                    <div class="myform-top">
+                        <div class="myform-top-left">
+                          <h3>Ingresa tus datos</h3>
+                           
+                        </div>
+                        <div class="myform-top-right">
+                          <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="myform-bottom">
+                     <form role="form" action="" method="post" class="">
+                        <div class="form-group">
+                            <input type="text" name="form-firtsname" required="Ingresa un nombre" placeholder="Nombre(s)" class="form-control" id="Nombre">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 offset--1">
+                            	 <div class="form-group">
+                                     <input type="text" name="form-lastname" required="true" placeholder="Apellido Paterno" class="form-control" id="ApellidoP">
+                                 </div>
+                            </div>
+                            <div class="col-sm-6">
+                            	 <div class="form-group">
+                                     <input type="text" name="form-lastname" required="true" placeholder="Apellido Materno" class="form-control" id="ApellidoM">
+                                 </div>
+                            </div>
+
+                        </div><!--end row lastname-->
+
+                    
+                        <div class="form-group">
+                         Fecha de Nacimiento
+                         <input id="Fecha" type="date" placeholder="Fecha de Nacimiento" required="Ingrese una fecha"  class="form-control" />
+                         
+                        </div>
+             
+                     
+                          
+                      <!--GENERO-->
+                        <div class="form-group">
+                            <div class="row">
+                               <div class="col-sm-3 offset-2">
+                                  <input type="radio" id="Genero" name="generos" value="femenino">Femenino 
+                               </div>
+                                <div class="col-sm-3 offset-2">
+                                     <input type="radio" id="Genero"
+                                     name="generos" value="masculino">Masculino 
+                               </div>
+
+                            	
+                            </div>
+                             <input type="text" name="tel" id="Cel" value="55-" class="form-control">
+   
+                        </div><!--fin formgroup genero -->
+                         
+                        <br/>   
+                        <button type="submit" class="mybtn">Guardar</button>
+                      </form>
+                    </div>
+              </div>
+            </div><!-- fin row--><!--fin datos Personales-->
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <!-- INICIO ADDRESS-->
+             <div class="row" id="address">
+              <div class="col-sm-6  offset-3 myform-cont" >
+                    <div class="myform-top">
+                        <div class="myform-top-left">
+                          <h3>Dirección</h3>
+                           
+                        </div>
+                        <div class="myform-top-right">
+                          <i class="fa fa-address-book-o"></i>
+                        </div>
+                    </div>
+                    <div class="myform-bottom">
+                     <form role="form" action="" method="post" class="">
+
+                            <div class="form-group">
+                               <input type="text" id="Calle" name="calle" placeholder="Calle" required="Llene este campo" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                               <input type="text" id="Colonia" name="generos" required="Llene este campo" placeholder="Colonia" class="form-control"/> 
+                            </div><!--fin formgroup Calle colonia-->
+                         <br>  
+                        <div class="form-group">
+                            <div class="row">
+                               <div class="col-sm-3 ">
+                                  <input type="text" id="C.P." class="form-control" placeholder="C.P.">
+                               </div>
+                                <div class="col-sm-3 offset-1">
+                                     <input type="text" id="No_int" name="No_int" placeholder="No_int" class="form-control"> 
+                               </div>
+                                <div class="col-sm-3 offset-1">
+                                     <input type="text" id="No_ext" name="No_ext" placeholder="No_ext" class="form-control"> 
+                               </div>
+                            </div>
+                            
+                        </div>
+                        <br>
+                        <div class="form-groupr">
+                            <select name="Delegacion" id="Nombre" class="form-control">
+                                <option>none</option>
+                                <option>Álvaro Obregón</option>
+                                <option>Ázcapotzalco</option>
+                                <option>Benito Juárez</option>
+                                <option>Coyoacán</option>
+                                <option>Cuajimalpa de Morelos</option>
+                                <option>Cuahutémoc</option>
+                                <option>Gustavo A. Madero</option>
+                                <option>Iztacalco</option>
+                                <option>Iztapalapa</option>
+                                <option>Magdalena Contreras</option>
+                                <option>Miguel Hidalgo</option>
+                                <option>Milpa Alta</option>
+                                <option>Tláhuac</option>
+                                <option>Tlalpan</option>
+                                <option>Venustiano Carranza</option>
+                                <option>Xochimilco</option>
+
+                            </select>
+
+                        </div>
+                         <br>
+                      </form>
+
+                        <br/>   
+                        <button type="submit" class="mybtn">Guardar</button>
+                    </div>
+              </div>
+
+            </div><!-- fin row--><!--fin-->
+             <br>
+            <br>
+            <br>
+              <br>
+            <br>
+            <br>
+
+            <!-- INICIO DATOS FINANCIEROS-->
+             <div class="row" id="datfinan">
+              <div class="col-sm-6  offset-3 myform-cont" >
+                    <div class="myform-top">
+                        <div class="myform-top-left">
+                          <h3>Datos financieros</h3>
+                           
+                        </div>
+                        <div class="myform-top-right">
+                          <i class="fa fa-credit-card-alt"></i>
+                        </div>
+                    </div>
+                    <div class="myform-bottom">
+                     <form role="form" action="" method="post" class="">
+                     <!--Num tarjeta-->
+                         Número de Tarjeta
+                         <div class="form-group">
+                            <input type="text"  required="true" placeholder="_ _ _ _  _ _ _ _  _ _ _ _" class="form-control" id="id_Tar">
+                        </div>
+                        <br>
+                      <!--tIPO-->
+                         Tipo
+                        <div class="form-group">
+                            <select name=Tipo" id="Tipo" class="form-control">
+                                <option>none</option>
+                                <option>Débito</option>
+                                <option>Crédito</option>
+                                <option>Visa</option>
+                            </select>  
+                        </div>
+
+                        <br/>
+                         
+                        <button type="submit" class="mybtn">Guardar</button>
+                      </form>
+                    </div>
+              </div>
+
+            </div><!-- fin row--><!--fin datfinan-->
+
+        </div>
+      </div>
+
+
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
