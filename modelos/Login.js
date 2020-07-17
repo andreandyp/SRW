@@ -1,5 +1,4 @@
 var BD = require("../config/bd");
-//var bcrypt = require("bcrypt-nodejs");
 
 class Usuario{
 	static registrar(email, contrasenia, tipo, callback){
@@ -77,14 +76,5 @@ class Usuario{
 	}
 	
 }
-
-/*function crearHash(contraseña) {
-	return bcrypt.hashSync(contraseña, bcrypt.genSaltSync(10), null);
-}
-
-function validarClave(contraseña, hash) {
-	return bcrypt.compareSync(contraseña, hash);
-}*/
-
 
 module.exports = Usuario;
